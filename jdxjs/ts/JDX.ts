@@ -97,19 +97,22 @@ class JDX
 	////////////////////////////////////////////////////////////////////////////////
 	/**
 	 * Si la URL es diferente la cambia y lanza los eventos correspondientes
-	 * @param url_string string url
+	 * @param ruta_relativa string url
 	 */
-	public cambiar(url_string: string): void {
+	public cambiar(ruta_relativa: string): void {
+		// ruta absoluta
+		let ruta = this.gurl(ruta_relativa);
 		// si existe el evento, como por ejemplo al ser lanzado por un link
 		if( window.event != undefined ) {
 			// cancelar evento
 			window.event.preventDefault();
 		}
+		
 
 		// si la url es diferente
-		if(this.href != url_string) {
+		if(this.href != ruta) {
 			// cambiar URL
-			history.pushState({}, "", url_string);
+			history.pushState({}, "", ruta);
 			// actualizar propiedades y notificar evento correspondiente
 			this._sincronizar_y_notificar();
 		}

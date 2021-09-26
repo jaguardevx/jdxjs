@@ -29,4 +29,16 @@ Devuelve una ruta absoluta a partir de una ruta relativa.
 
 `string`, path de la ruta relativa.
 
+#### Ejemplos de uso
 
+``` javascript
+document.querySelector('a#link-1').addEventListener(
+    'click', 
+    function(){ jdx.cambiar( jdx.gurl('mi-ruta') ) }
+);
+```
+
+``` html
+<button onclick="jdx.cambiar('mi-ruta#/accion-app');">otro</button>
+);
+```
